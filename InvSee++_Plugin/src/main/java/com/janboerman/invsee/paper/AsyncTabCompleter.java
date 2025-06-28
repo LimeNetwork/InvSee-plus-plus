@@ -53,7 +53,7 @@ public class AsyncTabCompleter implements Listener {
                     .collect(Collectors.toSet());
             playersWhoCanTabComplete.addAll(tabcompleters);
             playersWhoCanTabComplete.retainAll(tabcompleters);
-        }, 0L, 20L * 60); //every minute
+        }, 1L, 20L * 60); //every minute
     }
 
     private void enqueue(String name) {
