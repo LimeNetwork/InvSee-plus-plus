@@ -51,6 +51,7 @@ class SetupImpl implements Setup {
         SUPPORTED.registerSupportedVersion(() -> new Impl_Paper_1_21_11(), ServerSoftware.PAPER_1_21_11);
         SUPPORTED.registerSupportedVersion(() -> new Impl_26_1_1(), ServerSoftware.CRAFTBUKKIT_26_1_1, ServerSoftware.CRAFTBUKKIT_26_1_2, ServerSoftware.CRAFTBUKKIT_26_1);
         SUPPORTED.registerSupportedVersion(() -> new Impl_Paper_26_1_1(), ServerSoftware.PAPER_26_1_1, ServerSoftware.PAPER_26_1_2);
+        SUPPORTED.registerSupportedVersion(() -> new Impl_26_2(), ServerSoftware.CRAFTBUKKIT_26_2);
         SUPPORTED.registerSupportedVersion(() -> new Impl_Paper_26_2(), new ServerSoftware(MinecraftPlatform.PAPER, "26.2 Release Candidate 2"), ServerSoftware.PAPER_26_2);
         final SetupProvider glowstoneProver = () -> new Impl_Glowstone();
         final MinecraftVersion[] minecraftVersions = MinecraftVersion.values();
@@ -71,12 +72,11 @@ class SetupImpl implements Setup {
     }
 }
 
-// TODO juni 2026:
-//class Impl_26_2 extends SetupImpl {
-//    Impl_26_2() {
-//        super(com.janboerman.invsee.spigot.addon.give.impl_26_2.GiveImpl.INSTANCE);
-//    }
-//}
+class Impl_26_2 extends SetupImpl {
+    Impl_26_2() {
+        super(com.janboerman.invsee.spigot.addon.give.impl_26_2.GiveImpl.INSTANCE);
+    }
+}
 
 class Impl_Paper_26_2 extends SetupImpl {
     Impl_Paper_26_2() {

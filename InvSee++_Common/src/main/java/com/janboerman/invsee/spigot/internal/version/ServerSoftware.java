@@ -33,6 +33,7 @@ public class ServerSoftware {
             CRAFTBUKKIT_26_1 = new ServerSoftware(CRAFTBUKKIT, _26_1),
             CRAFTBUKKIT_26_1_1 = new ServerSoftware(CRAFTBUKKIT, _26_1_1),
             CRAFTBUKKIT_26_1_2 = new ServerSoftware(CRAFTBUKKIT, _26_1_2),
+            CRAFTBUKKIT_26_2 = new ServerSoftware(CRAFTBUKKIT, _26_2),
             PAPER_1_21_11 = new ServerSoftware(PAPER, _1_21_11),
             PAPER_26_1_1 = new ServerSoftware(PAPER, _26_1_1),
             PAPER_26_1_2 = new ServerSoftware(PAPER, _26_1_2),
