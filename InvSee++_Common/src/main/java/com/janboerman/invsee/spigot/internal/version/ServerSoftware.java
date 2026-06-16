@@ -180,7 +180,8 @@ public class ServerSoftware {
                             case "26.1-R0.1-SNAPSHOT": return CRAFTBUKKIT_26_1;
                             case "26.1.1-R0.1-SNAPSHOT": return CRAFTBUKKIT_26_1_1;
                             case "26.1.2-R0.1-SNAPSHOT": return CRAFTBUKKIT_26_1_2;
-                            default: return CRAFTBUKKIT_26_1_1;
+                            case "26.2-R0.1-SNAPSHOT": return CRAFTBUKKIT_26_2;
+                            default: return CRAFTBUKKIT_26_2;
                         }
                     }
                 }
