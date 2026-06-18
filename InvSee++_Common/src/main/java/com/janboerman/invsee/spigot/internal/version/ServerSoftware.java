@@ -204,7 +204,7 @@ public class ServerSoftware {
 
     @Override
     public String toString() {
-        return platform + " version " + version;
+        return platform + " version " + versionString;
     }
 
     @Override
