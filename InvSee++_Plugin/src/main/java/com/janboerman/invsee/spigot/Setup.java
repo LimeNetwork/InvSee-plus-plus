@@ -20,6 +20,7 @@ public interface Setup {
     public static Setup setup(Plugin plugin, Scheduler scheduler, NamesAndUUIDs lookup, OpenSpectatorsCache cache) {
         Server server = plugin.getServer();
         ServerSoftware serverSoftware = ServerSoftware.detect(server);
+        plugin.getLogger().info("Detected server software: " + serverSoftware);
 
         if (serverSoftware == null)
             throw new RuntimeException(SupportedServerSoftware.getUnsupportedPlatformMessage(server));
@@ -113,12 +114,6 @@ class Impl_1_21_1 extends SetupImpl {
     }
 }
 
-class Impl_1_21_3 extends SetupImpl {
-    Impl_1_21_3(Plugin plugin, NamesAndUUIDs lookup, Scheduler scheduler, OpenSpectatorsCache cache) {
-        super(new com.janboerman.invsee.spigot.impl_1_21_3_R2.InvseeImpl(plugin, lookup, scheduler, cache), new com.janboerman.invsee.spigot.impl_1_21_3_R2.KnownPlayersProvider(plugin, scheduler));
-    }
-}
-
 class Impl_1_21_4 extends SetupImpl {
     Impl_1_21_4(Plugin plugin, NamesAndUUIDs lookup, Scheduler scheduler, OpenSpectatorsCache cache) {
         super(new com.janboerman.invsee.spigot.impl_1_21_4_R3.InvseeImpl(plugin, lookup, scheduler, cache), new com.janboerman.invsee.spigot.impl_1_21_4_R3.KnownPlayersProvider(plugin, scheduler));
@@ -131,9 +126,51 @@ class Impl_1_21_5 extends SetupImpl {
     }
 }
 
-class Impl_1_21_6 extends SetupImpl {
-    Impl_1_21_6(Plugin plugin, NamesAndUUIDs lookup, Scheduler scheduler, OpenSpectatorsCache cache) {
-        super(new com.janboerman.invsee.spigot.impl_1_21_6_R5.InvseeImpl(plugin, lookup, scheduler, cache), new com.janboerman.invsee.spigot.impl_1_21_6_R5.KnownPlayersProvider(plugin, scheduler));
+class Impl_1_21_7 extends SetupImpl {
+    Impl_1_21_7(Plugin plugin, NamesAndUUIDs lookup, Scheduler scheduler, OpenSpectatorsCache cache) {
+        super(new com.janboerman.invsee.spigot.impl_1_21_7_R5.InvseeImpl(plugin, lookup, scheduler, cache), new com.janboerman.invsee.spigot.impl_1_21_7_R5.KnownPlayersProvider(plugin, scheduler));
+    }
+}
+
+class Impl_1_21_9 extends SetupImpl {
+    Impl_1_21_9(Plugin plugin, NamesAndUUIDs lookup, Scheduler scheduler, OpenSpectatorsCache cache) {
+        super(new com.janboerman.invsee.spigot.impl_1_21_9_R6.InvseeImpl(plugin, lookup, scheduler, cache), new com.janboerman.invsee.spigot.impl_1_21_9_R6.KnownPlayersProvider(plugin, scheduler));
+    }
+}
+
+class Impl_1_21_11 extends SetupImpl {
+    Impl_1_21_11(Plugin plugin, NamesAndUUIDs lookup, Scheduler scheduler, OpenSpectatorsCache cache) {
+        super(new com.janboerman.invsee.spigot.impl_1_21_11_R7.InvseeImpl(plugin, lookup, scheduler, cache), new com.janboerman.invsee.spigot.impl_1_21_11_R7.KnownPlayersProvider(plugin, scheduler));
+    }
+}
+
+class Impl_Paper_1_21_11 extends SetupImpl {
+    Impl_Paper_1_21_11(Plugin plugin, NamesAndUUIDs lookup, Scheduler scheduler, OpenSpectatorsCache cache) {
+        super(new com.janboerman.invsee.paper.impl_1_21_11.InvseeImpl(plugin, lookup, scheduler, cache), new com.janboerman.invsee.paper.impl_1_21_11.KnownPlayersProvider(plugin, scheduler));
+    }
+}
+
+class Impl_26_1_1 extends SetupImpl {
+    Impl_26_1_1(Plugin plugin, NamesAndUUIDs lookup, Scheduler scheduler, OpenSpectatorsCache cache) {
+        super(new com.janboerman.invsee.spigot.impl_26_1_1.InvseeImpl(plugin, lookup, scheduler, cache), new com.janboerman.invsee.spigot.impl_26_1_1.KnownPlayersProvider(plugin, scheduler));
+    }
+}
+
+class Impl_Paper_26_1_1 extends SetupImpl {
+    Impl_Paper_26_1_1(Plugin plugin, NamesAndUUIDs lookup, Scheduler scheduler, OpenSpectatorsCache cache) {
+        super(new com.janboerman.invsee.paper.impl_26_1_1.InvseeImpl(plugin, lookup, scheduler, cache), new com.janboerman.invsee.paper.impl_26_1_1.KnownPlayersProvider(plugin, scheduler));
+    }
+}
+
+class Impl_26_2 extends SetupImpl {
+    Impl_26_2(Plugin plugin, NamesAndUUIDs lookup, Scheduler scheduler, OpenSpectatorsCache cache) {
+        super(new com.janboerman.invsee.spigot.impl_26_2.InvseeImpl(plugin, lookup, scheduler, cache), new com.janboerman.invsee.spigot.impl_26_2.KnownPlayersProvider(plugin, scheduler));
+    }
+}
+
+class Impl_Paper_26_2 extends SetupImpl {
+    Impl_Paper_26_2(Plugin plugin, NamesAndUUIDs lookup, Scheduler scheduler, OpenSpectatorsCache cache) {
+        super(new com.janboerman.invsee.paper.impl_26_2.InvseeImpl(plugin, lookup, scheduler, cache), new com.janboerman.invsee.paper.impl_26_2.KnownPlayersProvider(plugin, scheduler));
     }
 }
 
@@ -160,10 +197,16 @@ class SetupImpl implements Setup {
         SUPPORTED.registerSupportedVersion((p, l, s, c) -> new Impl_1_20_6(p, l, s, c), ServerSoftware.CRAFTBUKKIT_1_20_6, new ServerSoftware(MinecraftPlatform.PAPER, MinecraftVersion._1_20_6));
         SUPPORTED.registerSupportedVersion((p, l, s, c) -> new Impl_1_21(p, l, s, c), new ServerSoftware(MinecraftPlatform.CRAFTBUKKIT, MinecraftVersion._1_21), new ServerSoftware(MinecraftPlatform.PAPER, MinecraftVersion._1_21));
         SUPPORTED.registerSupportedVersion((p, l, s, c) -> new Impl_1_21_1(p, l, s, c), ServerSoftware.CRAFTBUKKIT_1_21_1, new ServerSoftware(MinecraftPlatform.PAPER, MinecraftVersion._1_21_1));
-        SUPPORTED.registerSupportedVersion((p, l, s, c) -> new Impl_1_21_3(p, l, s, c), ServerSoftware.CRAFTBUKKIT_1_21_3, new ServerSoftware(MinecraftPlatform.PAPER, MinecraftVersion._1_21_3));
         SUPPORTED.registerSupportedVersion((p, l, s, c) -> new Impl_1_21_4(p, l, s, c), ServerSoftware.CRAFTBUKKIT_1_21_4, new ServerSoftware(MinecraftPlatform.PAPER, MinecraftVersion._1_21_4));
         SUPPORTED.registerSupportedVersion((p, l, s, c) -> new Impl_1_21_5(p, l, s, c), ServerSoftware.CRAFTBUKKIT_1_21_5, new ServerSoftware(MinecraftPlatform.PAPER, MinecraftVersion._1_21_5));
-        SUPPORTED.registerSupportedVersion((p, l, s, c) -> new Impl_1_21_6(p, l, s, c), ServerSoftware.CRAFTBUKKIT_1_21_6, new ServerSoftware(MinecraftPlatform.PAPER, MinecraftVersion._1_21_6));
+        SUPPORTED.registerSupportedVersion((p, l, s, c) -> new Impl_1_21_7(p, l, s, c), ServerSoftware.CRAFTBUKKIT_1_21_7, ServerSoftware.CRAFTBUKKIT_1_21_8, new ServerSoftware(MinecraftPlatform.PAPER, MinecraftVersion._1_21_7), new ServerSoftware(MinecraftPlatform.PAPER, MinecraftVersion._1_21_8));
+        SUPPORTED.registerSupportedVersion((p, l, s, c) -> new Impl_1_21_9(p, l, s, c), ServerSoftware.CRAFTBUKKIT_1_21_9, ServerSoftware.CRAFTBUKKIT_1_21_10, new ServerSoftware(MinecraftPlatform.PAPER, MinecraftVersion._1_21_9), new ServerSoftware(MinecraftPlatform.PAPER, MinecraftVersion._1_21_10));
+        SUPPORTED.registerSupportedVersion((p, l, s, c) -> new Impl_1_21_11(p, l, s, c), ServerSoftware.CRAFTBUKKIT_1_21_11);
+        SUPPORTED.registerSupportedVersion((p, l, s, c) -> new Impl_Paper_1_21_11(p, l, s, c), ServerSoftware.PAPER_1_21_11);
+        SUPPORTED.registerSupportedVersion((p, l, s, c) -> new Impl_26_1_1(p, l, s, c), ServerSoftware.CRAFTBUKKIT_26_1_1, ServerSoftware.CRAFTBUKKIT_26_1_2, ServerSoftware.CRAFTBUKKIT_26_1);
+        SUPPORTED.registerSupportedVersion((p, l, s, c) -> new Impl_Paper_26_1_1(p, l, s, c), ServerSoftware.PAPER_26_1_1, ServerSoftware.PAPER_26_1_2);
+        SUPPORTED.registerSupportedVersion((p, l, s, c) -> new Impl_Paper_26_2(p, l, s, c), new ServerSoftware(MinecraftPlatform.PAPER, "26.2 Release Candidate 2"), ServerSoftware.PAPER_26_2);
+        SUPPORTED.registerSupportedVersion((p, l, s, c) -> new Impl_26_2(p, l, s, c), ServerSoftware.CRAFTBUKKIT_26_2);
 
         final SetupProvider glowstoneProver = (p, l, s, c) -> new Impl_Glowstone(p, l, s, c);
         final MinecraftVersion[] minecraftVersions = MinecraftVersion.values();

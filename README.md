@@ -16,8 +16,9 @@ See also: [What Server Software does InvSee++ support?](#supported-server-softwa
 
 ### Commands
 - `/invsee <userName>|<uniqueId> [PWI{...}]`
-- `/endersee <userName>|<uniequeId> [PWI{...}]`
+- `/endersee <userName>|<uniqueId> [PWI{...}]`
 Note that for integration with PerWorldInventory, `load-data-on-join` needs to be set to `true` in its config.
+- `/invseeplusplusreload`
 
 ### Permissions
 
@@ -30,14 +31,15 @@ Note that for integration with PerWorldInventory, `load-data-on-join` needs to b
 - `invseeplusplus.exempt.endersee` makes it impossible to spectate the enderchest of the owner of this permission.
 - `invseeplusplus.bypass-exempt.invsee` ignore whether target players are exempted from having their inventory spectated.
 - `invseeplusplus.bypass-exempt.endersee` ignore whether target players are exempted from having their enderchest spectated.
-- `invseeplusplus.tabcomplete` allows username tabcompletion in /invsee or /endersee commands. This permission is automatically provided by `invseeplusplus.invsee.view` and `invseeplusplus.endersee.view`.  
+- `invseeplusplus.tabcomplete` allows username tabcompletion in /invsee or /endersee commands. This permission is automatically provided by `invseeplusplus.invsee.view` and `invseeplusplus.endersee.view`.
+- `invseeplusplus.reload` reloads the configuration.
 
 ###### Aggregate permissions:
 - `invseeplusplus.view` provides `invseeplusplus.invsee.view` and `invseeplusplus.endersee.view`.
 - `invseeplusplus.edit` provides `invseeplusplus.invsee.edit` and `invseeplusplus.endersee.edit`.
 - `invseeplusplus.exempt` provides `invseeplusplus.exempt.invsee` and `invseeplusplus.exempt.endersee`.
 - `invseeplusplus.bypass-exempt` provides `invseeplusplus.bypass-exempt.invsee` and `invseeplusplus.bypass-exempt.endersee`.
-- `invseeplusplus.*` provides all eight of the base permissions as well as all of the addon permissions.
+- `invseeplusplus.*` provides all ten of the base permissions as well as all of the addon permissions.
 
 ## Addons
 
@@ -70,6 +72,27 @@ On 1.20.5 and later:
 - `invseeplusplus.clear.inventory` allows access to `/invclear`.
 - `invseeplusplus.clear.enderchest` allows access to `/enderclear`.
 
+
+#### InvSee++_Clone
+##### Commands:
+- `/invclone <source player> <target player>?`
+- `/enderclone <source player> <target player>?`
+###### Examples:
+- `/invclone Notch` (copies Notch's inventory to yourself)
+- `/enderclone Jannyboy11 Notch` (copies Jannyboy11's enderchest to Notch's enderchest)
+##### Permissions:
+- `invseeplusplus.clone.*` provides `invseeplusplus.clone.inventory` and `invseeplusplus.clone.enderchest`.
+- `invseeplusplus.clone.inventory` allows access to `/invclone`.
+- `invseeplusplus.clone.enderchest` allows access to `/enderclone`.
+
+### Statistics
+
+InvSee++ by default sends statistics to [bStats](https://bstats.org/plugin/bukkit/InvseePlusPlus/9309) and [FastStats](https://faststats.dev/project/invsee-plus-plus/invsee%2B%2B).
+The statistics are meant to be anonymous, and they help me with future development.
+If you wish to opt-out of metrics collection, you can edit their config files in /plugins/bStats and /plugin/fastStats.
+
+[![Servers & Players](https://faststats.dev/embed/2cfe5112-d8dc-4b71-8759-c0b0601d0076?w=800&h=300)](https://faststats.dev/project/invsee-plus-plus/invsee++)
+
 ### Contact
 
 Bugs & Feature requests: [GitHub issues](https://github.com/Jannyboy11/InvSee-plus-plus/issues)
@@ -92,10 +115,16 @@ Anything else can be discussed via the [discussion thread on SpigotMC](https://w
     - `java -jar BuildTools.jar --rev 1.20.6 --compile craftbukkit --remapped`
     - `java -jar BuildTools.jar --rev 4287 --compile craftbukkit --remapped`
     - `java -jar BuildTools.jar --rev 1.21.1 --compile craftbukkit --remapped`
-    - `java -jar BuildTools.jar --rev 1.21.3 --compile craftbukkit --remapped`
     - `java -jar BuildTools.jar --rev 1.21.4 --compile craftbukkit --remapped`
     - `java -jar BuildTools.jar --rev 1.21.5 --compile craftbukkit --remapped`
-    - `java -jar BuildTools.jar --rev 1.21.6 --compile craftbukkit --remapped`
+    - `java -jar BuildTools.jar --rev 4522 --compile craftbukkit --remapped`
+    - `java -jar BuildTools.jar --rev 4539 --compile craftbukkit --remapped`
+    - `java -jar BuildTools.jar --rev 4576 --compile craftbukkit --remapped`
+    - `mvn ca.bkaw:paper-nms-maven-plugin:init --pl :impl_paper_1_21_11`
+    - `java -jar BuildTools.jar --rev 4617 --compile craftbukkit`
+    - `mvn ca.bkaw:paper-nms-maven-plugin:init --pl :impl_paper_26_1_2`
+    - `java -jar BuildTools.jar --rev 26.2 --compile craftbukkit`
+    - `mvn ca.bkaw:paper-nms-maven-plugin:init --pl :impl_paper_26_2`
 2. In the root directory of this project run `mvn clean package`.
 You can find the plugin jar at InvSee++_plugin/target/InvSee++.jar.
 
@@ -118,22 +147,28 @@ There are two types of support, Tier 1 support and Tier 2 support.
 In general I support the latest patch release of popularly used Minecraft version, as well as multiple recent versions of the latest major release.
 
 Server support matrix:
-| Server Software            | 1.8.8  | 1.12.2 | 1.16.5  | 1.17.1 | 1.18.2 | 1.19.4  | 1.20.1 | 1.20.4 | 1.20.6  | 1.21.1  | 1.21.3  | 1.21.4  | 1.21.5  | 1.21.6  |
-|----------------------------|--------|--------|---------|--------|--------|---------|--------|--------|---------|---------|---------|---------|---------|---------|
-| CraftBukkit                | Tier 2 | Tier 2 | Tier 2  | Tier 2 | Tier 2 | Tier 2  | Tier 2 | Tier 2 | Tier 2  | Tier 2  | Tier 2  | Tier 2  | Tier 2  | Tier 1  |
-| Paper                      | Tier 2 | Tier 2 | Tier 2  | Tier 2 | Tier 2 | Tier 2  | Tier 2 | Tier 2 | Tier 2  | Tier 2  | Tier 2  | Tier 2  | Tier 2  | Tier 2  |
-| Folia                      | n/a    | n/a    | n/a     | n/a    | n/a    | planned | -      | -      | planned | -       | -       | -       | -       | planned |
-| Other forks of CraftBukkit | Tier 2 | Tier 2 | Tier 2  | Tier 2 | Tier 2 | Tier 2  | Tier 2 | Tier 2 | Tier 2  | Tier 2  | Tier 2  | Tier 2  | Tier 2  | Tier 2  |
-| (Neo)Forge/Bukkit hybrids  | Tier 2 | Tier 2 | Tier 2* | Tier 2 | Tier 2 | Tier 2  | Tier 2 | Tier 2 | Tier 2  | Tier 2  | Tier 2  | Tier 2  | Tier 2  | Tier 2  |
-| Fabric/Bukkit hybrids      | Tier 2 | Tier 2 | Tier 2* | Tier 2 | Tier 2 | Tier 2  | Tier 2 | Tier 2 | Tier 2  | Tier 2  | Tier 2  | Tier 2  | Tier 2  | Tier 2  |
-| Glowstone                  | Tier 2 | Tier 2 | n/a     | n/a    | n/a    | n/a     | n/a    | n/a    | n/a     | n/a     | n/a     | n/a     | n/a     | n/a     |
+| Server Software            | 1.8.8  | 1.12.2 | 1.16.5  | 1.17.1 | 1.18.2 | 1.19.4  | 1.20.1 | 1.20.4 | 1.20.6  | 1.21.1 | 1.21.4 | 1.21.5 | 1.21.7 | 1.21.8 | 1.21.9 | 1.21.10| 1.21.11 | 26.1.1 | 26.2    |
+|----------------------------|--------|--------|---------|--------|--------|---------|--------|--------|---------|--------|--------|--------|--------|--------|--------|--------|---------|--------|---------|
+| CraftBukkit                | Tier 2 | Tier 2 | Tier 2  | Tier 2 | Tier 2 | Tier 2  | Tier 2 | Tier 2 | Tier 2  | Tier 2 | Tier 2 | Tier 2 | Tier 2 | Tier 2 | Tier 2 | Tier 2 | Tier 2  | Tier 2 | Tier 1  |
+| Paper                      | Tier 2 | Tier 2 | Tier 2  | Tier 2 | Tier 2 | Tier 2  | Tier 2 | Tier 2 | Tier 2  | Tier 2 | Tier 2 | Tier 2 | Tier 2 | Tier 2 | Tier 2 | Tier 2 | Tier 2  | Tier 2 | Tier 2  |
+| Folia                      | n/a    | n/a    | n/a     | n/a    | n/a    | planned | -      | -      | planned | -      | -      | -      | -      | -      | -      | -      | -       | -      | planned |
+| UniverseSpigot             | n/a    | n/a    | n/a     | n/a    | n/a    | n/a     | Tier 2 | Tier 2 | Tier 2  | Tier 2 | Tier 2 | Tier 2 | Tier 2 | Tier 2 | Tier 2 | Tier 2 | Tier 2  | Tier 2 | Tier 2  |
+| Other forks of CraftBukkit | Tier 2 | Tier 2 | Tier 2  | Tier 2 | Tier 2 | Tier 2  | Tier 2 | Tier 2 | Tier 2  | Tier 2 | Tier 2 | Tier 2 | Tier 2 | Tier 2 | Tier 2 | Tier 2 | Tier 2  | Tier 2 | Tier 2  |
+| (Neo)Forge/Bukkit hybrids  | Tier 2 | Tier 2 | Tier 2* | Tier 2 | Tier 2 | Tier 2  | Tier 2 | Tier 2 | Tier 2  | Tier 2 | Tier 2 | Tier 2 | Tier 2 | Tier 2 | Tier 2 | Tier 2 | Tier 2  | Tier 2 | Tier 2  |
+| Fabric/Bukkit hybrids      | Tier 2 | Tier 2 | Tier 2* | Tier 2 | Tier 2 | Tier 2  | Tier 2 | Tier 2 | Tier 2  | Tier 2 | Tier 2 | Tier 2 | Tier 2 | Tier 2 | Tier 2 | Tier 2 | Tier 2  | Tier 2 | Tier 2  |
+| Glowstone                  | Tier 2 | Tier 2 | n/a     | n/a    | n/a    | n/a     | n/a    | n/a    | n/a     | n/a    | n/a    | n/a    | n/a    | n/a    | n/a    | n/a    | n/a     | n/a    | n/a     |
 
 *The modding frameworks that these servers are based on were released at a time when Minecraft's minimum supported version was Java 8 (or lower),
 and there is a good chance they won't be able to load mods and plugins compiled for newer Java versions.
 
 Is there any server that implements the Bukkit api that I'm missing? Don't hesitate to create [an issue](https://github.com/Jannyboy11/InvSee-plus-plus/issues/new) and request support! 
 
+
+[![Historic Minecraft Version Usage](https://faststats.dev/embed/010faaef-face-4f9d-8288-61621c708031?w=800&h=300)](https://faststats.dev/project/invsee-plus-plus/invsee++)
+
 ### Supported Java versions
-| Minecraft version: | 1.8.x      | 1.12.x     | 1.16.x      | 1.17.x      | 1.18.x      | 1.19.x      | 1.20.[0-4]  | 1.20.[5-6]  | 1.21.x      |
-|--------------------|------------|------------|-------------|-------------|-------------|-------------|-------------|-------------|-------------|
-| Java version:      | 8 or newer | 8 or newer | 11 or newer | 16 or newer | 17 or newer | 17 or newer | 17 or newer | 21 or newer | 21 or newer |
+| Minecraft version: | 1.8.x      | 1.12.x     | 1.16.x      | 1.17.x      | 1.18.x      | 1.19.x      | 1.20.[0-4]  | 1.20.[5-6]  | 1.21.x      | 26.x.x      |
+|--------------------|------------|------------|-------------|-------------|-------------|-------------|-------------|-------------|-------------|-------------|
+| Java version:      | 8 or newer | 8 or newer | 11 or newer | 16 or newer | 17 or newer | 17 or newer | 17 or newer | 21 or newer | 21 or newer | 25 or newer |
+
+[![Java Versions](https://faststats.dev/embed/dc2e7402-115d-457d-a230-c025ba101968?w=600&h=300)](https://faststats.dev/project/invsee-plus-plus/invsee++)

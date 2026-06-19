@@ -2,7 +2,7 @@
     <parent>
         <artifactId>invsee-plus-plus</artifactId>
         <groupId>com.janboerman.invsee</groupId>
-        <version>0.30.4-SNAPSHOT</version>
+        <version>0.31.16-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -84,7 +84,49 @@
         </dependency>
         <dependency>
             <groupId>com.janboerman.invsee</groupId>
-            <artifactId>give_impl_1_21_6_r5</artifactId>
+            <artifactId>give_impl_paper_26_2</artifactId>
+            <version>${project.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.janboerman.invsee</groupId>
+            <artifactId>give_impl_26_2</artifactId>
+            <version>${project.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.janboerman.invsee</groupId>
+            <artifactId>give_impl_paper_26_1_2</artifactId>
+            <version>${project.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.janboerman.invsee</groupId>
+            <artifactId>give_impl_26_1_1</artifactId>
+            <version>${project.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.janboerman.invsee</groupId>
+            <artifactId>give_impl_1_21_11_r7</artifactId>
+            <version>${project.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.janboerman.invsee</groupId>
+            <artifactId>give_impl_paper_1_21_11</artifactId>
+            <version>${project.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.janboerman.invsee</groupId>
+            <artifactId>give_impl_1_21_9_r6</artifactId>
+            <version>${project.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.janboerman.invsee</groupId>
+            <artifactId>give_impl_1_21_7_r5</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
         </dependency>
@@ -97,12 +139,6 @@
         <dependency>
             <groupId>com.janboerman.invsee</groupId>
             <artifactId>give_impl_1_21_4_r3</artifactId>
-            <version>${project.version}</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.janboerman.invsee</groupId>
-            <artifactId>give_impl_1_21_3_r2</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
         </dependency>
